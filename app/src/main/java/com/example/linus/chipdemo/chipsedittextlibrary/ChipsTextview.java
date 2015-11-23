@@ -134,7 +134,8 @@ public class ChipsTextview extends EditText {
 						int start = s.getSpanStart(this);
 						int end = s.getSpanEnd(this);
 						Log.d("TAG", "onClick [" + s.subSequence(start, end) + "]");
-						tv.setText(tv.getText().toString().replaceAll(""+s.subSequence(start, end + 1) , ""));
+						tv.setText(tv.getText().toString().replaceAll("" + s.subSequence(start, end + 1), ""));
+						updateCheckDataSet(s.subSequence(start, end).toString(),adapter);
 //						setChips();
 					}
 				};
@@ -153,6 +154,16 @@ public class ChipsTextview extends EditText {
 
 
 	}
+
+	private void updateCheckDataSet(String charSequence, ChipsAdapter adapter) {
+		for (int i = 0 ; i < adapter.getCount(); i++){
+			if(adapter.getItem(i).getTitle().equalsIgnoreCase(charSequence)){
+				adapter.getItem(i).setSelected(false);
+			}
+		}
+		adapter.notifyDataSetChanged();
+	}
+
 
 	public void setMyAdapter(ChipsAdapter adapter) {
 		this.adapter = adapter;

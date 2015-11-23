@@ -31,7 +31,7 @@ public class MainActivity extends Activity  {
 
 
 		for(int i=0;i<countries.length;i++){
-			arrValueData.add(new ChipsItem(countries[i],0/*imgs.getResourceId(i, -1)*/ ));
+			arrValueData.add(new ChipsItem(countries[i],0/*imgs.getResourceId(i, -1)*/ ,false));
 			Log.i("Main Activity", arrValueData.get(i).getTitle() + " = " + arrValueData.get(i).getImageid());
 		}
 

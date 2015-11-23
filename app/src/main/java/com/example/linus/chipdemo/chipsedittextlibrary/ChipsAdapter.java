@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -22,14 +24,17 @@ public class ChipsAdapter extends BaseAdapter  {
 	private Context ctx;
 	private LayoutInflater inflater;
 	private String TAG = this.getClass().getSimpleName();
+	CompoundButton.OnCheckedChangeListener listener;
 
-	public ChipsAdapter(Context context,ArrayList<ChipsItem> items) {
+	public ChipsAdapter(Context context,ArrayList<ChipsItem> items, CompoundButton.OnCheckedChangeListener listener) {
 		super();
+		this.listener = listener;
 		this.ctx = context;
 		this.items = items;
 		this.suggestions = items;//new ArrayList<ChipsItem>();
 		this.arraylist = new ArrayList<ChipsItem>();
 		this.arraylist.addAll(suggestions);
+
 	}
 
 	@Override
@@ -71,6 +76,7 @@ public class ChipsAdapter extends BaseAdapter  {
 			vh = new ViewHolder();
 			vh.img = (ImageView) view.findViewById(R.id.imageView1);
 			vh.tv = (TextView) view.findViewById(R.id.textView1);
+			vh.chkBox = (CheckBox) view.findViewById(R.id.chkbox_tick);
 
 			view.setTag(vh);
 		} else {
@@ -80,6 +86,9 @@ public class ChipsAdapter extends BaseAdapter  {
 		Log.i(TAG, suggestions.get(position).getTitle() +  " = " + suggestions.get(position).getImageid());
 		vh.img.setImageResource(suggestions.get(position).getImageid());
 		vh.tv.setText(suggestions.get(position).getTitle());
+		vh.chkBox.setChecked(suggestions.get(position).isSelected());
+		vh.chkBox.setTag(position);
+		vh.chkBox.setOnCheckedChangeListener(listener);
 
 		return view;
 	}
@@ -87,6 +96,7 @@ public class ChipsAdapter extends BaseAdapter  {
 	class ViewHolder {
 		TextView tv;
 		ImageView img;
+		CheckBox chkBox;
 	}
 //
 //	@Override
