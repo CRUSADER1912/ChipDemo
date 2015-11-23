@@ -5,9 +5,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
 
-import com.example.linus.chipdemo.chipsedittextlibrary.ChipMaker;
-import com.example.linus.chipdemo.chipsedittextlibrary.ChipsItem;
-import com.example.linus.chipdemo.chipsedittextlibrary.ChipsTextview;
+import com.example.linus.chipdemo.chips_edittext.ChipMaker;
+import com.example.linus.chipdemo.chips_edittext.ChipsItem;
+import com.example.linus.chipdemo.chips_edittext.ChipsTextview;
 
 import java.util.ArrayList;
 
@@ -18,9 +18,9 @@ public class MainActivity extends Activity  {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
+		setContentView(R.layout.layout_chip_main);
 		
-		final ChipsTextview ch= (ChipsTextview) findViewById(R.id.chipsMultiAutoCompleteTextview1);
+		final ChipsTextview ch= (ChipsTextview) findViewById(R.id.chipsAutoTextview);
 		listview = (ListView) findViewById(R.id.listview);
 
 		String[] countries = getResources().getStringArray(R.array.country);

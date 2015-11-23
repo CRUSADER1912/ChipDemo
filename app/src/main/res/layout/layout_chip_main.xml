@@ -4,8 +4,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity" >
 
-    <com.example.linus.chipdemo.chipsedittextlibrary.ChipsTextview
-        android:id="@+id/chipsMultiAutoCompleteTextview1"
+    <com.example.linus.chipdemo.chips_edittext.ChipsTextview
+        android:id="@+id/chipsAutoTextview"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -14,12 +14,12 @@
         android:maxLines="3">
 
         <requestFocus />
-    </com.example.linus.chipdemo.chipsedittextlibrary.ChipsTextview>
+    </com.example.linus.chipdemo.chips_edittext.ChipsTextview>
 
     <ListView
         android:id="@+id/listview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_below="@+id/chipsMultiAutoCompleteTextview1" />
+        android:layout_below="@+id/chipsAutoTextview" />
 
 </RelativeLayout>

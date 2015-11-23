@@ -1,4 +1,4 @@
-package com.example.linus.chipdemo.chipsedittextlibrary;
+package com.example.linus.chipdemo.chips_edittext;
 
 public class ChipsItem {
 

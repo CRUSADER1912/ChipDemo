@@ -1,4 +1,4 @@
-package com.example.linus.chipdemo.chipsedittextlibrary;
+package com.example.linus.chipdemo.chips_edittext;
 
 import android.app.Activity;
 import android.content.Context;
@@ -101,9 +101,9 @@ public class ChipsTextview extends EditText {
 			int x =0;
 			// loop will generate ImageSpan for every country name separated by comma
 			for(String c : chips){
-				// inflate chips_edittext layout
+				// inflate chips_edittext_new layout
 				LayoutInflater lf = (LayoutInflater) getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
-				TextView textView = (TextView) lf.inflate(R.layout.chips_edittext, null);
+				TextView textView = (TextView) lf.inflate(R.layout.chips_edittext_new, null);
 				textView.setText(c); // set text
 				int image = /*((ChipsAdapter) getAdapter())*/adapter.getImage(c);
 				textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, image, 0);
