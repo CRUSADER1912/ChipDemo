@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,9 +23,9 @@ public class ChipsAdapter extends BaseAdapter  {
 	private Context ctx;
 	private LayoutInflater inflater;
 	private String TAG = this.getClass().getSimpleName();
-	CompoundButton.OnCheckedChangeListener listener;
+	View.OnClickListener listener;
 
-	public ChipsAdapter(Context context,ArrayList<ChipsItem> items, CompoundButton.OnCheckedChangeListener listener) {
+	public ChipsAdapter(Context context,ArrayList<ChipsItem> items, View.OnClickListener listener) {
 		super();
 		this.listener = listener;
 		this.ctx = context;
@@ -83,12 +82,13 @@ public class ChipsAdapter extends BaseAdapter  {
 			vh = (ViewHolder) view.getTag();
 		}
 
-		Log.i(TAG, suggestions.get(position).getTitle() +  " = " + suggestions.get(position).getImageid());
+		Log.i(TAG, suggestions.get(position).getTitle() + " = " + suggestions.get(position).getImageid());
 		vh.img.setImageResource(suggestions.get(position).getImageid());
 		vh.tv.setText(suggestions.get(position).getTitle());
 		vh.chkBox.setChecked(suggestions.get(position).isSelected());
-		vh.chkBox.setTag(position);
-		vh.chkBox.setOnCheckedChangeListener(listener);
+		vh.chkBox.setTag(R.string.tag_data_position, position);
+		vh.chkBox.setTag(R.string.tag_data_val, suggestions.get(position));
+		vh.chkBox.setOnClickListener(listener);
 
 		return view;
 	}

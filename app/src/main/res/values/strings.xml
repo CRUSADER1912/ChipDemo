@@ -43,5 +43,8 @@
       
         <string name="getvalue">Get Value</string>
         <string name="selectedcountries">Selected Countries</string>
+
+    <string name="tag_data_position">position</string>
+    <string name="tag_data_val">Value</string>
     
 </resources>
