@@ -22,6 +22,7 @@ import android.widget.TextView;
 
 import com.example.linus.chipdemo.R;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 public class ChipsTextview extends EditText {
@@ -85,7 +86,15 @@ public class ChipsTextview extends EditText {
 	void checkDataValidty(String before, String after){
 		if(before.length() > after.length()){
 			if(before.endsWith(",") && after.length() > 0){
-				setText(after.substring(0,after.lastIndexOf(",") + 1));
+				//Case of backspace key
+				ArrayList<ChipsItem> suggestions = adapter.getSuggestions();
+				for(int i = 0 ; i < suggestions.size(); i++){
+					if(suggestions.get(i).getTitle().equalsIgnoreCase(after.substring(after.lastIndexOf(",") + 1,after.length()))){
+						suggestions.get(i).setSelected(false);
+						adapter.notifyDataSetChanged();
+					}
+				}
+				setText(after.substring(0, after.lastIndexOf(",") + 1));
 				setChips();
 			}
 		}
@@ -105,7 +114,7 @@ public class ChipsTextview extends EditText {
 				LayoutInflater lf = (LayoutInflater) getContext().getSystemService(Activity.LAYOUT_INFLATER_SERVICE);
 				TextView textView = (TextView) lf.inflate(R.layout.chips_edittext_new, null);
 				textView.setText(c); // set text
-				int image = /*((ChipsAdapter) getAdapter())*/adapter.getImage(c);
+				int image = android.R.drawable.sym_def_app_icon;///*((ChipsAdapter) getAdapter())*/adapter.getImage(c);
 				textView.setCompoundDrawablesWithIntrinsicBounds(0, 0, image, 0);
 				// capture bitmapt of genreated textview
 				int spec = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);

@@ -19,6 +19,7 @@ public class ChipsAdapter extends BaseAdapter  {
 
 	private ArrayList<ChipsItem> items;
 	private ArrayList<ChipsItem> arraylist;
+
 	private ArrayList<ChipsItem> suggestions;
 	private Context ctx;
 	private LayoutInflater inflater;
@@ -34,6 +35,10 @@ public class ChipsAdapter extends BaseAdapter  {
 		this.arraylist = new ArrayList<ChipsItem>();
 		this.arraylist.addAll(suggestions);
 
+	}
+
+	public ArrayList<ChipsItem> getSuggestions() {
+		return suggestions;
 	}
 
 	@Override

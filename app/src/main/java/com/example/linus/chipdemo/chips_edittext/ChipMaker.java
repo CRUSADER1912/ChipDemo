@@ -2,7 +2,6 @@ package com.example.linus.chipdemo.chips_edittext;
 
 import android.content.Context;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.CheckBox;
 import android.widget.ListView;
 
@@ -32,27 +31,27 @@ public class ChipMaker implements View.OnClickListener /*implements CompoundButt
         ch.setMyAdapter(chipsAdapter);
 
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> parent, View view,
-                                    int position, long id) {
-                // When clicked, show a toast with the TextView text
-                ChipsItem chipsitem = (ChipsItem) parent.getItemAtPosition(position);
-//                Toast.makeText(context,
-//                        "Clicked on Row: " + chipsitem.getTitle(),
-//                        Toast.LENGTH_LONG).show();
-                String currData = ch.getText().toString();
-                if (!currData.contains(chipsitem.getTitle())) {
-                    if (currData.contains(",")) {
-                        ch.setText(currData.substring(0, currData.lastIndexOf(",") + 1) + chipsitem.getTitle() + ",");
-                    } else {
-                        ch.setText(chipsitem.getTitle() + ",");
-                    }
-                } else {
-                    ch.setText(currData.replaceAll(chipsitem.getTitle() + ",", ""));
-                }
-                ch.setChips();
-            }
-        });
+//        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            public void onItemClick(AdapterView<?> parent, View view,
+//                                    int position, long id) {
+//                // When clicked, show a toast with the TextView text
+//                ChipsItem chipsitem = (ChipsItem) parent.getItemAtPosition(position);
+////                Toast.makeText(context,
+////                        "Clicked on Row: " + chipsitem.getTitle(),
+////                        Toast.LENGTH_LONG).show();
+//                String currData = ch.getText().toString();
+//                if (!currData.contains(chipsitem.getTitle())) {
+//                    if (currData.contains(",")) {
+//                        ch.setText(currData.substring(0, currData.lastIndexOf(",") + 1) + chipsitem.getTitle() + ",");
+//                    } else {
+//                        ch.setText(chipsitem.getTitle() + ",");
+//                    }
+//                } else {
+//                    ch.setText(currData.replaceAll(chipsitem.getTitle() + ",", ""));
+//                }
+//                ch.setChips();
+//            }
+//        });
     }
 
     @Override
